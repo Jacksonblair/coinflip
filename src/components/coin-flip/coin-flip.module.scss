@@ -1,0 +1,48 @@
+.coin {
+    width: 250px;
+    height: 250px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/1.png");
+    bottom: -50%;
+    // border: 1px solid blue;
+}
+
+.flipping {
+    animation-iteration-count: infinite;
+    animation-duration: 0.1s;
+    animation-timing-function: step-end;
+    animation-name: flip;
+    background-image: url("../../assets/flipsmear.png");
+}
+
+@keyframes flip {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(90deg);
+    }
+}
+
+.rolling {
+    background-image: url("../../assets/rolling.png");
+    animation: rolling 0.1s infinite;
+    transform: rotateX(0);
+    animation-timing-function: cubic-bezier(.5,-8,.5,8);
+}
+
+@keyframes rolling {
+    0% {
+        transform: rotateZ(2deg);
+    }
+    100% {
+        transform: rotateZ(-2deg);
+    }
+}
+
+.showing {
+    background-image: url("../../assets/result.png");
+    // animation: show 1s linear forwards;
+}

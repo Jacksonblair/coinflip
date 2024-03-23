@@ -1,0 +1,49 @@
+.mover {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    bottom: -50px;
+}
+
+.flipping {
+    animation: up 0.5s ease-out alternate forwards, down 0.5s 0.5s ease-in forwards;
+}
+
+@keyframes up {
+    0% {
+        bottom: -50%;
+    }
+    100% {
+        bottom: 100%;
+    }
+}
+
+@keyframes down {
+    0%   {bottom: 100%}
+    100% {bottom: 0%}
+}
+
+.rolling {
+    bottom: 0%;
+}
+
+.showing {
+    animation: show 1s ease-out forwards;
+}
+
+@keyframes show {
+    0% {
+        bottom: 5%;
+        opacity: 1;
+    }
+
+    90% {
+        bottom: 50%;
+        opacity: 1;
+    }
+
+    100%{
+        bottom: 50%;
+        opacity: 0;
+    }
+}
