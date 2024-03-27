@@ -28,7 +28,12 @@ function App() {
 
     useEffect(() => {
         setTimeout(() => {
-            window.scrollTo(1, 0);
+            window.onresize = function () {
+                // @ts-ignore
+                document.body.height = window.innerHeight;
+            };
+            // @ts-ignore
+            window.onresize(); // called to initially set the height.
         }, 1);
     }, []);
 
