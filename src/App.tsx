@@ -40,12 +40,14 @@ function App() {
     return (
         <div
             style={{
-                height: "100%",
-                width: "100%",
+                overflowY: "auto",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
+                flex: "1",
+                minHeight: "600px",
+                overflow: "hidden",
             }}
         >
             <Lane className="lane">
