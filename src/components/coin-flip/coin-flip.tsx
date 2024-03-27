@@ -66,7 +66,9 @@ export const CoinFlip = (props: {
 
     return (
         <>
-            <div className={shadowClasses.join(" ")} />
+            <div className={styles.shadowctr}>
+                <div className={shadowClasses.join(" ")} />
+            </div>
             <CoinMover state={coinState}>
                 <div className={coinClasses.join(" ")} />
             </CoinMover>
