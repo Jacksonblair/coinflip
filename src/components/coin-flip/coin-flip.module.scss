@@ -4,9 +4,10 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../../assets/1.png");
+    // background-image: url("../../assets/1.png");
     bottom: -50%;
     // border: 1px solid blue;
+    z-index: 20;
 }
 
 .flipping {
@@ -14,35 +15,107 @@
     animation-duration: 0.1s;
     animation-timing-function: step-end;
     animation-name: flip;
-    background-image: url("../../assets/flipsmear.png");
 }
 
 @keyframes flip {
     0% {
-        transform: rotateZ(0deg);
+        background-image: url("../../assets/spin_1.png");
+        // transform: rotateZ(0deg);
     }
     50% {
-        transform: rotateZ(90deg);
+        background-image: url("../../assets/spin_2.png");
+        // transform: rotateZ(90deg);
     }
 }
 
-.rolling {
-    background-image: url("../../assets/rolling.png");
-    animation: rolling 0.1s infinite;
-    transform: rotateX(0);
-    animation-timing-function: cubic-bezier(.5,-8,.5,8);
+.rollingheads {
+    animation: _rollingheads 0.125s infinite step-end;
 }
 
-@keyframes rolling {
+@keyframes _rollingheads {
     0% {
-        transform: rotateZ(2deg);
+        background-image: url("../../assets/hit_front_1.png");
     }
-    100% {
-        transform: rotateZ(-2deg);
+    50% {
+        background-image: url("../../assets/hit_front_2.png");
     }
 }
 
-.showing {
-    background-image: url("../../assets/result.png");
-    // animation: show 1s linear forwards;
+.rollingtails {
+    animation: _rollingtails 0.125s infinite step-end;
 }
+
+@keyframes _rollingtails {
+    0% {
+        background-image: url("../../assets/hit_back_1.png");
+    }
+    50% {
+        background-image: url("../../assets/hit_back_2.png");
+    }
+}
+
+.showingheads {
+    background-image: url("../../assets/heads.png");
+    animation: fade 1s ease-out forwards;
+}
+
+.showingtails {
+    background-image: url("../../assets/tails.png");
+    animation: fade 1s ease-out forwards;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 84px;
+    border-radius: 100%;
+    z-index: -10;
+    width: 200px;
+    height: 20px;
+    background-color: #c7beb7;
+}
+
+.shadowflipping {
+    animation: shrink 0.5s ease-out alternate forwards, grow 0.5s 0.5s ease-in forwards;
+}
+
+@keyframes shrink {
+    0% {
+        width: 200px;
+    }
+
+    100% {
+        width: 50px;
+        height: 5px;
+    }
+}
+
+@keyframes grow {
+    0% {
+        width: 50px;
+        height: 5px;
+    }
+
+    100% {
+        width: 200px;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+.shadowshowing {
+    animation: shrink 1s ease-out forwards, fade 1s ease-out forwards;
+}
+
+

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import { CoinFlip } from "./components/coin-flip/coin-flip";
+import { Lane } from "./components/lane/lane";
 
 type Flip = {
     id: string;
@@ -28,50 +29,48 @@ function App() {
     return (
         <div
             style={{
-                height: "100vh",
-                width: "100vw",
+                height: "100%",
+                width: "100%",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
             }}
         >
-            <div
-                style={{
-                    position: "relative",
-                    height: "75vh",
-                    width: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-end",
-                    alignItems: "center",
-                }}
-            >
-                {flips.map((f) => {
-                    return (
-                        <CoinFlip
-                            onResult={(result) => {
-                                setResults((prev) => [...prev, result]);
-                            }}
-                            onFinished={() => {
-                                setFlips((prev) =>
-                                    prev.filter((p) => p.id !== f.id)
-                                );
-                            }}
-                            key={f.id}
-                            id={f.id}
-                        />
-                    );
-                })}
-                {/* {!flips.length && <StaticCoin />} */}
-            </div>
-            <div>
-                <button onClick={() => flip()}>Flip</button>
-            </div>
-            <div>
-                <div> Heads: {heads.length}</div>
-                <div> Tails: {tails.length}</div>
-            </div>
+            <Lane className="lane">
+                <div
+                    style={{
+                        position: "relative",
+                        flex: "1",
+                        width: "250px",
+                    }}
+                >
+                    {flips.map((f) => {
+                        return (
+                            <CoinFlip
+                                onResult={(result) => {
+                                    setResults((prev) => [...prev, result]);
+                                }}
+                                onFinished={() => {
+                                    setFlips((prev) =>
+                                        prev.filter((p) => p.id !== f.id)
+                                    );
+                                }}
+                                key={f.id}
+                                id={f.id}
+                            />
+                        );
+                    })}
+                    {/* {!flips.length && <StaticCoin />} */}
+                </div>
+                <div>
+                    <button onClick={() => flip()}>Flip</button>
+                </div>
+                <div>
+                    <div> Heads: {heads.length}</div>
+                    <div> Tails: {tails.length}</div>
+                </div>
+            </Lane>
         </div>
     );
 }

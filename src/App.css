@@ -1,5 +1,15 @@
 #root {
   --coin-flip-duration: 2s;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  --square-1: #ffeec8;
+  background-image: linear-gradient(45deg, var(--square-1) 25%, transparent 25%), linear-gradient(-45deg, var(--square-1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--square-1) 75%), linear-gradient(-45deg, transparent 75%, var(--square-1) 75%);
+  background-size: 80px 80px;
+  background-position: 0 0, 0 40px, 40px -40px, -40px 0px;
+  background-color: #fff8ee;
 }
 
 .logo {

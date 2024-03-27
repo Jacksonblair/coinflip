@@ -3,7 +3,7 @@ import { CoinMover } from "../coin-mover/coin-mover";
 import styles from "./coin-flip.module.scss";
 
 export const COIN_FLIP_DURATION = 1 * 1000;
-export const COIN_ROLL_DURATION = 0.3 * 1000;
+export const COIN_ROLL_DURATION = 1 * 1000;
 export const SHOW_RESULT_DURATION = 2 * 1000;
 
 export type CoinState = "flipping" | "rolling" | "showing" | "finished";
@@ -17,12 +17,14 @@ export const CoinFlip = (props: {
     const [coinState, setCoinState] = useState<CoinState>("flipping");
 
     useEffect(() => {
-        if (coinState === "showing" && !result) {
+        if (coinState === "flipping" && !result) {
             const num = Math.random() > 0.5 ? 1 : 0;
             const result = num === 0 ? "heads" : "tails";
-
-            props.onResult(result);
             setResult(result);
+        }
+
+        if (coinState === "showing" && result) {
+            props.onResult(result);
         }
 
         if (coinState === "finished" && result) {
@@ -42,9 +44,32 @@ export const CoinFlip = (props: {
         }, COIN_FLIP_DURATION + COIN_ROLL_DURATION + SHOW_RESULT_DURATION);
     }, []);
 
+    const coinClasses = [styles.coin];
+    if (coinState === "flipping") {
+        coinClasses.push(styles["flipping"]);
+    } else if (coinState === "rolling") {
+        coinClasses.push(
+            result === "heads" ? styles.rollingheads : styles.rollingtails
+        );
+    } else if (coinState === "showing") {
+        coinClasses.push(
+            result === "heads" ? styles.showingheads : styles.showingtails
+        );
+    }
+
+    const shadowClasses = [styles.shadow];
+    if (coinState == "flipping") {
+        shadowClasses.push(styles["shadowflipping"]);
+    } else if (coinState === "showing") {
+        shadowClasses.push(styles["shadowshowing"]);
+    }
+
     return (
-        <CoinMover state={coinState}>
-            <div className={[styles.coin, styles[coinState]].join(" ")} />
-        </CoinMover>
+        <>
+            <div className={shadowClasses.join(" ")} />
+            <CoinMover state={coinState}>
+                <div className={coinClasses.join(" ")} />
+            </CoinMover>
+        </>
     );
 };
