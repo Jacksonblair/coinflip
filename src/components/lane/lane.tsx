@@ -4,10 +4,10 @@ export const Lane = (props: ComponentProps<"div">) => {
     return (
         <div
             style={{
-                width: "50vw",
+                width: "50%",
                 maxWidth: "500px",
                 minWidth: "250px",
-                height: "100vh",
+                height: "100%",
                 backgroundColor: "white",
                 flexDirection: "column",
                 alignItems: "center",
