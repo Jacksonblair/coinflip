@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { CoinFlip } from "./components/coin-flip/coin-flip";
 import { Lane } from "./components/lane/lane";
@@ -25,6 +25,12 @@ function App() {
             ];
         });
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            window.scrollTo(1, 0);
+        }, 1);
+    }, []);
 
     return (
         <div
