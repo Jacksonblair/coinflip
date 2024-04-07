@@ -47,7 +47,7 @@ function App() {
                 flexDirection: "column",
                 justifyContent: "center",
                 flex: "1",
-                minHeight: "600px",
+                minHeight: "1000px",
                 overflow: "hidden",
             }}
         >
