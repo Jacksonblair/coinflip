@@ -13,6 +13,7 @@ export const Lane = (props: ComponentProps<"div">) => {
                 alignItems: "center",
                 justifyContent: "flex-end",
                 display: "flex",
+                margin: "0 auto",
             }}
             {...props}
         />

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { CoinFlip } from "./components/coin-flip/coin-flip";
 import { Lane } from "./components/lane/lane";
+import { Footer } from "./components/footer/footer";
+import AwesomeIcon from "@mui/icons-material/AutoAwesome";
 
 type Flip = {
     id: string;
@@ -43,7 +45,6 @@ function App() {
                 overflowY: "auto",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
                 justifyContent: "center",
                 flex: "1",
                 minHeight: "600px",
@@ -77,13 +78,29 @@ function App() {
                     {/* {!flips.length && <StaticCoin />} */}
                 </div>
                 <div>
-                    <button onClick={() => flip()}>Flip</button>
+                    <button onClick={() => flip()}>
+                        <h2
+                            style={{
+                                display: "flex",
+                                alignItems: "center",
+                                gap: "8px",
+                            }}
+                        >
+                            Flip the coin! <AwesomeIcon />
+                        </h2>
+                    </button>
                 </div>
-                <div>
-                    <div> Heads: {heads.length}</div>
-                    <div> Tails: {tails.length}</div>
+                <div style={{ display: "flex", gap: "24px" }}>
+                    <h3 style={{ fontWeight: "400" }}>
+                        Heads: <strong>{heads.length}</strong>
+                    </h3>
+                    <h3 style={{ fontWeight: "400" }}>
+                        Tails: <strong>{tails.length}</strong>
+                    </h3>
                 </div>
+                <br />
             </Lane>
+            <Footer />
         </div>
     );
 }
