@@ -46,7 +46,6 @@ function App() {
                 flexDirection: "column",
                 justifyContent: "center",
                 flex: "1",
-                overflowY: "auto",
             }}
         >
             <Lane className="lane">
