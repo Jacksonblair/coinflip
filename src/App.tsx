@@ -42,30 +42,13 @@ function App() {
     return (
         <div
             style={{
-                overflowY: "auto",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 flex: "1",
-                overflow: "hidden",
+                overflowY: "auto",
             }}
         >
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
-            <br /> hello
             <Lane className="lane">
                 <div
                     style={{

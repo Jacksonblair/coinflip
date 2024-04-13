@@ -15,6 +15,7 @@ export const Lane = (props: ComponentProps<"div">) => {
                 display: "flex",
                 margin: "0 auto",
                 minHeight: "500px",
+                overflowY: "hidden",
             }}
             {...props}
         />
