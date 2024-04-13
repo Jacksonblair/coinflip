@@ -14,6 +14,7 @@ export const Lane = (props: ComponentProps<"div">) => {
                 justifyContent: "flex-end",
                 display: "flex",
                 margin: "0 auto",
+                minHeight: "500px",
             }}
             {...props}
         />
