@@ -1,9 +1,9 @@
+import AwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { useEffect, useState } from "react";
 import "./App.css";
 import { CoinFlip } from "./components/coin-flip/coin-flip";
-import { Lane } from "./components/lane/lane";
 import { Footer } from "./components/footer/footer";
-import AwesomeIcon from "@mui/icons-material/AutoAwesome";
+import { Lane } from "./components/lane/lane";
 
 type Flip = {
     id: string;
@@ -95,7 +95,6 @@ function App() {
                         Tails: <strong>{tails.length}</strong>
                     </h3>
                 </div>
-                <br />
             </Lane>
             <Footer />
         </div>
